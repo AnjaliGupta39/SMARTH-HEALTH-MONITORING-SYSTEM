@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Health Monitoring</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <h2>Smart Health</h2>
+        <p class="muted">Nurse → Patient</p>
+      </div>
+
+      <nav>
+        <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+        <button class="nav-btn" data-view="patients">Patients</button>
+        <button class="nav-btn" data-view="nurses">Nurses</button>
+        <button class="nav-btn" data-view="reports">Reports</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <small>Logged in as: <strong>Nurse A</strong></small>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="search">
+          <input id="globalSearch" placeholder="Search patients, notes..." />
+        </div>
+        <div class="actions">
+          <button id="addNurseBtn">Register Nurse</button>
+          <button id="addPatientBtn">Add Patient</button>
+        </div>
+      </header>
+
+      <section id="view-dashboard" class="view active">
+        <div class="cards">
+          <div class="card">
+            <h3>Total Patients</h3>
+            <p id="totalPatients">0</p>
+          </div>
+          <div class="card">
+            <h3>Active Nurses</h3>
+            <p id="totalNurses">0</p>
+          </div>
+          <div class="card">
+            <h3>Critical Alerts</h3>
+            <p id="criticalAlerts">0</p>
+          </div>
+          <div class="card">
+            <h3>Today Checks</h3>
+            <p id="todayChecks">0</p>
+          </div>
+        </div>
+
+        <div class="recent">
+          <h3>Recent Patient Checks</h3>
+          <div id="recentChecks" class="recent-list"></div>
+        </div>
+      </section>
+
+      <section id="view-patients" class="view">
+        <div class="list-helpers">
+          <h2>Patients</h2>
+          <input id="patientFilter" placeholder="Filter by name or room..." />
+        </div>
+        <div id="patientsGrid" class="grid"></div>
+      </section>
+
+      <section id="view-nurses" class="view">
+        <h2>Nurses</h2>
+        <div id="nursesList" class="grid"></div>
+      </section>
+
+      <section id="view-reports" class="view">
+        <h2>Reports</h2>
+        <p>Export / analytics (placeholder)</p>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal templates -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-panel">
+      <button class="close" id="closeModal">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
